@@ -1,15 +1,27 @@
+using WebApplicationParqueando.Repository;
+using WebApplicationParqueando.Repository.Interfaces;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// Agregar servicios al contenedor.
 builder.Services.AddControllersWithViews();
+// Habilitar el cliente Http
+builder.Services.AddHttpClient();
+
+// Configuración de servicios para Parqueando
+builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
+builder.Services.AddScoped<IReservaRepository, ReservaRepository>();
+builder.Services.AddScoped<IEstablecimientoRepository, EstablecimientoRepository>();
+builder.Services.AddScoped<ICalificacionRepository, CalificacionRepository>();
+builder.Services.AddScoped<IComentarioRepository, ComentarioRepository>();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// Configurar el pipeline de solicitudes HTTP.
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+    // El valor HSTS predeterminado es 30 días. Puedes cambiar esto según tus necesidades para entornos de producción, ver https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
@@ -17,6 +29,12 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+
+// Damos soporte Cors
+app.UseCors(c => c
+    .AllowAnyOrigin()
+    .AllowAnyMethod()
+    .AllowAnyHeader());
 
 app.UseAuthorization();
 

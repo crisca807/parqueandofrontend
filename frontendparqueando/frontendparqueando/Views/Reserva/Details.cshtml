@@ -1,0 +1,53 @@
+﻿@model WebApplicationParqueando.Models.DTO.ReservaDTO
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Reservation Details</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.IdReserva)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IdReserva)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TiempoReserva)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TiempoReserva)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Placa)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Placa)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TipoVehiculo)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TipoVehiculo)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.IdUsuario)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IdUsuario)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.IdEstablecimiento)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IdEstablecimiento)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

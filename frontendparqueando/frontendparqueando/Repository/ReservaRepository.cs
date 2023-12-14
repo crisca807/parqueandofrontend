@@ -11,5 +11,10 @@ namespace WebApplicationParqueando.Repository
         {
 
         }
+
+        public Task UpdateAsync(object value, ReservaDTO reserva)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -3,28 +3,28 @@ using WebApplicationParqueando.Models.DTO;
 using WebApplicationParqueando.Repository.Interfaces;
 using WebApplicationParqueando.Utilities;
 
-namespace WebApplicationBilling.Controllers
+namespace WebApplicationParqueando.Controllers
 {
-    public class ReservaController : Controller
+    public class EstablecimientoController : Controller
     {
-        private readonly IReservaRepository _reservaRepository;
+        private readonly IEstablecimientoRepository _establecimientoRepository;
 
-        public ReservaController(IReservaRepository reservaRepository)
+        public EstablecimientoController(IEstablecimientoRepository establecimientoRepository)
         {
-            this._reservaRepository = reservaRepository;
+            this._establecimientoRepository = establecimientoRepository;
         }
 
         [HttpGet]
         public ActionResult Index()
         {
-            return View(new ReservaDTO() { });
+            return View(new EstablecimientoDTO() { });
         }
 
-        public async Task<IActionResult> GetAllReservas()
+        public async Task<IActionResult> GetAllEstablecimientos()
         {
             try
             {
-                var data = await _reservaRepository.GetAllAsync(UrlResources.UrlBase + UrlResources.UrlReservas);
+                var data = await _establecimientoRepository.GetAllAsync(UrlResources.UrlBase + UrlResources.UrlEstablecimientos);
                 return Json(new { data });
             }
             catch (Exception ex)
@@ -45,11 +45,11 @@ namespace WebApplicationBilling.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(ReservaDTO reserva)
+        public async Task<IActionResult> Create(EstablecimientoDTO establecimiento)
         {
             try
             {
-                await _reservaRepository.PostAsync(UrlResources.UrlBase + UrlResources.UrlReservas, reserva);
+                await _establecimientoRepository.PostAsync(UrlResources.UrlBase + UrlResources.UrlEstablecimientos, establecimiento);
                 return RedirectToAction(nameof(Index));
             }
             catch

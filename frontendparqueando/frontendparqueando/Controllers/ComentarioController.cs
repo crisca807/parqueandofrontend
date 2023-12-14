@@ -5,26 +5,26 @@ using WebApplicationParqueando.Utilities;
 
 namespace WebApplicationBilling.Controllers
 {
-    public class ReservaController : Controller
+    public class ComentarioController : Controller
     {
-        private readonly IReservaRepository _reservaRepository;
+        private readonly IComentarioRepository _comentarioRepository;
 
-        public ReservaController(IReservaRepository reservaRepository)
+        public ComentarioController(IComentarioRepository comentarioRepository)
         {
-            this._reservaRepository = reservaRepository;
+            this._comentarioRepository = comentarioRepository;
         }
 
         [HttpGet]
         public ActionResult Index()
         {
-            return View(new ReservaDTO() { });
+            return View(new ComentarioDTO() { });
         }
 
-        public async Task<IActionResult> GetAllReservas()
+        public async Task<IActionResult> GetAllComentarios()
         {
             try
             {
-                var data = await _reservaRepository.GetAllAsync(UrlResources.UrlBase + UrlResources.UrlReservas);
+                var data = await _comentarioRepository.GetAllAsync(UrlResources.UrlBase + UrlResources.UrlComentarios);
                 return Json(new { data });
             }
             catch (Exception ex)
@@ -45,11 +45,11 @@ namespace WebApplicationBilling.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(ReservaDTO reserva)
+        public async Task<IActionResult> Create(ComentarioDTO comentario)
         {
             try
             {
-                await _reservaRepository.PostAsync(UrlResources.UrlBase + UrlResources.UrlReservas, reserva);
+                await _comentarioRepository.PostAsync(UrlResources.UrlBase + UrlResources.UrlComentarios, comentario);
                 return RedirectToAction(nameof(Index));
             }
             catch

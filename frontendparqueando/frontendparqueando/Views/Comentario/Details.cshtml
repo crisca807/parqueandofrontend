@@ -1,0 +1,54 @@
+﻿@model WebApplicationParqueando.Models.DTO.ComentarioDTO
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Comment Details</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.IDcomentario)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IDcomentario)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ComentarioTexto)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ComentarioTexto)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.IDusuario)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IDusuario)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.IDEstablecimiento)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IDEstablecimiento)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Usuario.Nombre)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Usuario.Nombre)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Establecimiento.NombreEstablecimiento)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Establecimiento.NombreEstablecimiento)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

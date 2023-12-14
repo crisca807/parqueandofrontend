@@ -1,0 +1,42 @@
+﻿@model WebApplicationParqueando.Models.DTO.CalificacionDTO
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Rating Details</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.IDCalificacion)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IDCalificacion)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Valoracion)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Valoracion)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.IDUsuario)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IDUsuario)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.IDEstablecimiento)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IDEstablecimiento)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

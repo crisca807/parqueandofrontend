@@ -1,0 +1,49 @@
+﻿@model IEnumerable<WebApplicationParqueando.Models.DTO.CalificacionDTO>
+
+<h2>Lista de Calificaciones</h2>
+<br />
+<div class="col-6">
+    <a asp-action="Create" class="btn btn-primary text-white">Crear nueva calificación</a>
+</div>
+<br />
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Valoracion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IDUsuario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IDEstablecimiento)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Valoracion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IDUsuario)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IDEstablecimiento)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.IDCalificacion">Editar</a> |
+                    <a asp-action="Details" asp-route-id="@item.IDCalificacion">Detalles</a> |
+                    <a asp-action="Delete" asp-route-id="@item.IDCalificacion">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts {
+    <script src="~/js/user.js"></script>
+}

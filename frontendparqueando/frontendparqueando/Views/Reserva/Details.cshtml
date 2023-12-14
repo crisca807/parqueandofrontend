@@ -1,0 +1,22 @@
+﻿@model WebApplicationParqueando.Models.DTO.ReservaDTO
+
+<h2>Detalles de la Reserva</h2>
+
+<div>
+    <h4>ID: @Model.IDReserva</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Tiempo de Reserva
+        </dt>
+        <dd class="col-sm-10">
+            @Model.TiempoReserva
+        </dd>
+
+        <!-- Agrega otros detalles según sea necesario -->
+
+    </dl>
+</div>
+<p>
+    <a asp-action="Index">Volver a la lista</a>
+</p>

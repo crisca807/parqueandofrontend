@@ -1,0 +1,31 @@
+﻿@model IEnumerable<WebApplicationParqueando.Models.DTO.ComentarioDTO>
+
+<h1>Comentarios</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Texto del Comentario</th>
+            <th>ID Usuario</th>
+            <th>ID Establecimiento</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var comentario in Model)
+        {
+            <tr>
+                <td>@comentario.IDcomentario</td>
+                <td>@comentario.ComentarioTexto</td>
+                <td>@comentario.IDusuario</td>
+                <td>@comentario.IDEstablecimiento</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@comentario.IDcomentario">Detalles</a> |
+                    <a asp-action="Edit" asp-route-id="@comentario.IDcomentario">Editar</a> |
+                    <a asp-action="Delete" asp-route-id="@comentario.IDcomentario">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

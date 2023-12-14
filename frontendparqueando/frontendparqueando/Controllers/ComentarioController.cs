@@ -1,90 +1,114 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using WebApplicationParqueando.Models.DTO;
 using WebApplicationParqueando.Repository.Interfaces;
-using WebApplicationParqueando.Utilities;
 
-namespace WebApplicationBilling.Controllers
+namespace WebApplicationParqueando.Controllers
 {
-    public class ComentarioController : Controller
+    public class ComentariosController : Controller
     {
         private readonly IComentarioRepository _comentarioRepository;
 
-        public ComentarioController(IComentarioRepository comentarioRepository)
+        public ComentariosController(IComentarioRepository comentarioRepository)
         {
-            this._comentarioRepository = comentarioRepository;
+            _comentarioRepository = comentarioRepository;
         }
 
-        [HttpGet]
-        public ActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View(new ComentarioDTO() { });
+            var comentarios = await _comentarioRepository.GetAllAsync();
+            return View(comentarios);
         }
 
-        public async Task<IActionResult> GetAllComentarios()
+        public async Task<IActionResult> Details(int id)
         {
-            try
+            var comentario = await _comentarioRepository.GetByIdAsync(id);
+
+            if (comentario == null)
             {
-                var data = await _comentarioRepository.GetAllAsync(UrlResources.UrlBase + UrlResources.UrlComentarios);
-                return Json(new { data });
+                return NotFound();
             }
-            catch (Exception ex)
-            {
-                return StatusCode(500, "Internal Server Error. Please try again later.");
-            }
+
+            return View(comentario);
         }
 
-        public async Task<IActionResult> GetComentarioById(int id)
+        public IActionResult Create()
         {
-            try
-            {
-                var data = await _comentarioRepository.GetByIdAsync(id);
-                return Json(new { data });
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, "Internal Server Error. Please try again later.");
-            }
+            // Implementar si es necesario
+            return View();
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddComentario([FromBody] ComentarioDTO comentario)
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create(ComentarioDTO comentario)
         {
             try
             {
-                var result = await _comentarioRepository.AddAsync(comentario);
-                return Json(new { data = result });
+                await _comentarioRepository.CreateAsync(comentario);
+                return RedirectToAction(nameof(Index));
             }
             catch (Exception ex)
             {
-                return StatusCode(500, "Internal Server Error. Please try again later.");
+                // Manejar el error según sea necesario
+                return View();
             }
         }
 
-        [HttpPut]
-        public async Task<IActionResult> UpdateComentario([FromBody] ComentarioDTO comentario)
+        public async Task<IActionResult> Edit(int id)
+        {
+            var comentario = await _comentarioRepository.GetByIdAsync(id);
+
+            if (comentario == null)
+            {
+                return NotFound();
+            }
+
+            return View(comentario);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(int id, ComentarioDTO comentario)
         {
             try
             {
-                var result = await _comentarioRepository.UpdateAsync(comentario);
-                return Json(new { data = result });
+                await _comentarioRepository.UpdateAsync(id, comentario);
+                return RedirectToAction(nameof(Index));
             }
             catch (Exception ex)
             {
-                return StatusCode(500, "Internal Server Error. Please try again later.");
+                // Manejar el error según sea necesario
+                return View();
             }
         }
 
-        [HttpDelete]
-        public async Task<IActionResult> DeleteComentario(int id)
+        public async Task<IActionResult> Delete(int id)
+        {
+            var comentario = await _comentarioRepository.GetByIdAsync(id);
+
+            if (comentario == null)
+            {
+                return NotFound();
+            }
+
+            return View(comentario);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int id)
         {
             try
             {
-                var result = await _comentarioRepository.DeleteAsync(id);
-                return Json(new { data = result });
+                await _comentarioRepository.DeleteAsync(id);
+                return RedirectToAction(nameof(Index));
             }
             catch (Exception ex)
             {
-                return StatusCode(500, "Internal Server Error. Please try again later.");
+                // Manejar el error según sea necesario
+                return View();
             }
         }
     }

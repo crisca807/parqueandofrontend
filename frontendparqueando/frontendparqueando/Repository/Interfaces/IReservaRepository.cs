@@ -1,8 +1,15 @@
-﻿using WebApplicationParqueando.Models.DTO;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+using WebApplicationParqueando.Models.DTO;
+
 namespace WebApplicationParqueando.Repository.Interfaces
 {
-    public interface IReservaRepository : IRepository<ReservaDTO>
+    public interface IReservaRepository
     {
-        // Agrega métodos específicos para el repositorio de reservas, si es necesario.
+        Task<IEnumerable<ReservaDTO>> GetAllAsync();
+        Task<ReservaDTO> GetByIdAsync(int id);
+        Task PostAsync(ReservaDTO reserva);
+        Task PutAsync(int id, ReservaDTO reserva);
+        Task DeleteAsync(int id);
     }
 }

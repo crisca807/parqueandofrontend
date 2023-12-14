@@ -1,0 +1,15 @@
+﻿@model WebApplicationParqueando.Models.DTO.UsuarioDTO
+
+<tr>
+    <td>@Model.IDUsuario</td>
+    <td>@Model.Nombre</td>
+    <td>@Model.Apellido</td>
+    <td>@Model.CorreoElectronico</td>
+    <td>@Model.Contraseña</td>
+    <td>@Model.TipoUsuario</td>
+    <td>
+        <a asp-action="Details" asp-route-id="@Model.IDUsuario">Detalles</a> |
+        <a asp-action="Edit" asp-route-id="@Model.IDUsuario">Editar</a> |
+        <a asp-action="Delete" asp-route-id="@Model.IDUsuario">Eliminar</a>
+    </td>
+</tr>

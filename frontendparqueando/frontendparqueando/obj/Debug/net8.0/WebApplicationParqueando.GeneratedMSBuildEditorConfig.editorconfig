@@ -1,0 +1,183 @@
+is_global = true
+build_property.TargetFramework = net8.0
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = WebApplicationParqueando
+build_property.RootNamespace = WebApplicationParqueando
+build_property.ProjectDir = C:\Users\Daniel\Downloads\parqueandofrontend\parqueandofrontend\frontendparqueando\frontendparqueando\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\Daniel\Downloads\parqueandofrontend\parqueandofrontend\frontendparqueando\frontendparqueando
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/Daniel/Downloads/parqueandofrontend/parqueandofrontend/frontendparqueando/frontendparqueando/Views/Calificacion/create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FsaWZpY2FjaW9uXGNyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Daniel/Downloads/parqueandofrontend/parqueandofrontend/frontendparqueando/frontendparqueando/Views/Calificacion/CreateConfirmation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FsaWZpY2FjaW9uXENyZWF0ZUNvbmZpcm1hdGlvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Daniel/Downloads/parqueandofrontend/parqueandofrontend/frontendparqueando/frontendparqueando/Views/Calificacion/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FsaWZpY2FjaW9uXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Daniel/Downloads/parqueandofrontend/parqueandofrontend/frontendparqueando/frontendparqueando/Views/Calificacion/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FsaWZpY2FjaW9uXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Daniel/Downloads/parqueandofrontend/parqueandofrontend/frontendparqueando/frontendparqueando/Views/Calificacion/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FsaWZpY2FjaW9uXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Daniel/Downloads/parqueandofrontend/parqueandofrontend/frontendparqueando/frontendparqueando/Views/Calificacion/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FsaWZpY2FjaW9uXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Daniel/Downloads/parqueandofrontend/parqueandofrontend/frontendparqueando/frontendparqueando/Views/Comentario/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tZW50YXJpb1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Daniel/Downloads/parqueandofrontend/parqueandofrontend/frontendparqueando/frontendparqueando/Views/Comentario/CreateConfirmation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tZW50YXJpb1xDcmVhdGVDb25maXJtYXRpb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Daniel/Downloads/parqueandofrontend/parqueandofrontend/frontendparqueando/frontendparqueando/Views/Comentario/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tZW50YXJpb1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Daniel/Downloads/parqueandofrontend/parqueandofrontend/frontendparqueando/frontendparqueando/Views/Comentario/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tZW50YXJpb1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Daniel/Downloads/parqueandofrontend/parqueandofrontend/frontendparqueando/frontendparqueando/Views/Comentario/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tZW50YXJpb1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Daniel/Downloads/parqueandofrontend/parqueandofrontend/frontendparqueando/frontendparqueando/Views/Comentario/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tZW50YXJpb1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Daniel/Downloads/parqueandofrontend/parqueandofrontend/frontendparqueando/frontendparqueando/Views/Establecimiento/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXN0YWJsZWNpbWllbnRvXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Daniel/Downloads/parqueandofrontend/parqueandofrontend/frontendparqueando/frontendparqueando/Views/Establecimiento/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXN0YWJsZWNpbWllbnRvXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Daniel/Downloads/parqueandofrontend/parqueandofrontend/frontendparqueando/frontendparqueando/Views/Establecimiento/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXN0YWJsZWNpbWllbnRvXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Daniel/Downloads/parqueandofrontend/parqueandofrontend/frontendparqueando/frontendparqueando/Views/Establecimiento/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXN0YWJsZWNpbWllbnRvXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Daniel/Downloads/parqueandofrontend/parqueandofrontend/frontendparqueando/frontendparqueando/Views/Establecimiento/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXN0YWJsZWNpbWllbnRvXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Daniel/Downloads/parqueandofrontend/parqueandofrontend/frontendparqueando/frontendparqueando/Views/Establecimiento/_CreateOrEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXN0YWJsZWNpbWllbnRvXF9DcmVhdGVPckVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Daniel/Downloads/parqueandofrontend/parqueandofrontend/frontendparqueando/frontendparqueando/Views/Establecimiento/_Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXN0YWJsZWNpbWllbnRvXF9EZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Daniel/Downloads/parqueandofrontend/parqueandofrontend/frontendparqueando/frontendparqueando/Views/Establecimiento/_Form.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXN0YWJsZWNpbWllbnRvXF9Gb3JtLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Daniel/Downloads/parqueandofrontend/parqueandofrontend/frontendparqueando/frontendparqueando/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Daniel/Downloads/parqueandofrontend/parqueandofrontend/frontendparqueando/frontendparqueando/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Daniel/Downloads/parqueandofrontend/parqueandofrontend/frontendparqueando/frontendparqueando/Views/Reserva/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzZXJ2YVxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Daniel/Downloads/parqueandofrontend/parqueandofrontend/frontendparqueando/frontendparqueando/Views/Reserva/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzZXJ2YVxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Daniel/Downloads/parqueandofrontend/parqueandofrontend/frontendparqueando/frontendparqueando/Views/Reserva/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzZXJ2YVxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Daniel/Downloads/parqueandofrontend/parqueandofrontend/frontendparqueando/frontendparqueando/Views/Reserva/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzZXJ2YVxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Daniel/Downloads/parqueandofrontend/parqueandofrontend/frontendparqueando/frontendparqueando/Views/Reserva/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzZXJ2YVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Daniel/Downloads/parqueandofrontend/parqueandofrontend/frontendparqueando/frontendparqueando/Views/Reserva/_ReservaPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzZXJ2YVxfUmVzZXJ2YVBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Daniel/Downloads/parqueandofrontend/parqueandofrontend/frontendparqueando/frontendparqueando/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Daniel/Downloads/parqueandofrontend/parqueandofrontend/frontendparqueando/frontendparqueando/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Daniel/Downloads/parqueandofrontend/parqueandofrontend/frontendparqueando/frontendparqueando/Views/Usuarios/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb3NcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Daniel/Downloads/parqueandofrontend/parqueandofrontend/frontendparqueando/frontendparqueando/Views/Usuarios/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb3NcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Daniel/Downloads/parqueandofrontend/parqueandofrontend/frontendparqueando/frontendparqueando/Views/Usuarios/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb3NcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Daniel/Downloads/parqueandofrontend/parqueandofrontend/frontendparqueando/frontendparqueando/Views/Usuarios/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb3NcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Daniel/Downloads/parqueandofrontend/parqueandofrontend/frontendparqueando/frontendparqueando/Views/Usuarios/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb3NcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Daniel/Downloads/parqueandofrontend/parqueandofrontend/frontendparqueando/frontendparqueando/Views/Usuarios/_UsuarioPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb3NcX1VzdWFyaW9QYXJ0aWFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Daniel/Downloads/parqueandofrontend/parqueandofrontend/frontendparqueando/frontendparqueando/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Daniel/Downloads/parqueandofrontend/parqueandofrontend/frontendparqueando/frontendparqueando/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Daniel/Downloads/parqueandofrontend/parqueandofrontend/frontendparqueando/frontendparqueando/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-rhiyhsizld

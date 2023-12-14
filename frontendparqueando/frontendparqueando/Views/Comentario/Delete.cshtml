@@ -1,0 +1,23 @@
+﻿@model WebApplicationParqueando.Models.DTO.ComentarioDTO
+
+<h1>Eliminar Comentario</h1>
+
+<h3>¿Estás seguro de que deseas eliminar este comentario?</h3>
+<div>
+    <h4>Comentario</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">ID</dt>
+        <dd class="col-sm-10">@Model.IDcomentario</dd>
+        <dt class="col-sm-2">Texto del Comentario</dt>
+        <dd class="col-sm-10">@Model.ComentarioTexto</dd>
+        <dt class="col-sm-2">ID Usuario</dt>
+        <dd class="col-sm-10">@Model.IDusuario</dd>
+        <dt class="col-sm-2">ID Establecimiento</dt>
+        <dd class="col-sm-10">@Model.IDEstablecimiento</dd>
+    </dl>
+    <form asp-action="DeleteConfirmed" asp-route-id="@Model.IDcomentario" method="post">
+        <input type="submit" value="Eliminar" class="btn btn-danger" />
+        <a asp-action="Index">Volver a la Lista</a>
+    </form>
+</div>

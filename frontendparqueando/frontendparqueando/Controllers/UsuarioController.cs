@@ -1,10 +1,9 @@
-﻿
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using WebApplicationParqueando.Models.DTO;
 using WebApplicationParqueando.Repository.Interfaces;
-using WebApplicationParqueando.Utilities;
-
-
 
 namespace WebApplicationBilling.Controllers
 {
@@ -14,34 +13,41 @@ namespace WebApplicationBilling.Controllers
 
         public UsuarioController(IUsuarioRepository usuarioRepository)
         {
-            this._usuarioRepository = usuarioRepository;
+            _usuarioRepository = usuarioRepository;
         }
 
         [HttpGet]
-        public ActionResult Index()
-        {
-            return View(new UsuarioDTO() { });
-        }
-
-        public async Task<IActionResult> GetAllUsuarios()
+        public async Task<IActionResult> Index()
         {
             try
             {
-                var data = await _usuarioRepository.GetAllAsync(UrlResources.UrlBase + UrlResources.UrlUsuarios);
-                return Json(new { data });
+                var usuarios = await _usuarioRepository.GetAllUsuariosAsync();
+                return View(usuarios);
             }
             catch (Exception ex)
             {
-                return StatusCode(500, "Internal Server Error. Please try again later.");
+                // Manejar errores adecuadamente (por ejemplo, redirigir a una página de error)
+                return RedirectToAction("Index", "Home");
             }
         }
 
-        public ActionResult Details(int id)
+        [HttpGet]
+        public async Task<IActionResult> Details(int id)
         {
-            return View();
+            try
+            {
+                var usuario = await _usuarioRepository.GetUsuarioAsync(id);
+                return View(usuario);
+            }
+            catch (Exception ex)
+            {
+                // Manejar errores adecuadamente (por ejemplo, redirigir a una página de error)
+                return RedirectToAction("Index", "Home");
+            }
         }
 
-        public ActionResult Create()
+        [HttpGet]
+        public IActionResult Create()
         {
             return View();
         }
@@ -52,50 +58,75 @@ namespace WebApplicationBilling.Controllers
         {
             try
             {
-                await _usuarioRepository.PostAsync(UrlResources.UrlBase + UrlResources.UrlUsuarios, usuario);
+                await _usuarioRepository.CreateUsuarioAsync(usuario);
                 return RedirectToAction(nameof(Index));
             }
-            catch
+            catch (Exception ex)
             {
-                return View();
+                // Manejar errores adecuadamente (por ejemplo, mostrar un mensaje de error en la vista)
+                return View(usuario);
             }
         }
 
-        public ActionResult Edit(int id)
+        [HttpGet]
+        public async Task<IActionResult> Edit(int id)
         {
-            return View();
+            try
+            {
+                var usuario = await _usuarioRepository.GetUsuarioAsync(id);
+                return View(usuario);
+            }
+            catch (Exception ex)
+            {
+                // Manejar errores adecuadamente (por ejemplo, redirigir a una página de error)
+                return RedirectToAction("Index", "Home");
+            }
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public async Task<IActionResult> Edit(int id, UsuarioDTO usuario)
         {
             try
             {
+                await _usuarioRepository.UpdateUsuarioAsync(id, usuario);
                 return RedirectToAction(nameof(Index));
             }
-            catch
+            catch (Exception ex)
             {
-                return View();
+                // Manejar errores adecuadamente (por ejemplo, mostrar un mensaje de error en la vista)
+                return View(usuario);
             }
         }
 
-        public ActionResult Delete(int id)
+        [HttpGet]
+        public async Task<IActionResult> Delete(int id)
         {
-            return View();
+            try
+            {
+                var usuario = await _usuarioRepository.GetUsuarioAsync(id);
+                return View(usuario);
+            }
+            catch (Exception ex)
+            {
+                // Manejar errores adecuadamente (por ejemplo, redirigir a una página de error)
+                return RedirectToAction("Index", "Home");
+            }
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public async Task<IActionResult> DeleteConfirmed(int id)
         {
             try
             {
+                await _usuarioRepository.DeleteUsuarioAsync(id);
                 return RedirectToAction(nameof(Index));
             }
-            catch
+            catch (Exception ex)
             {
-                return View();
+                // Manejar errores adecuadamente (por ejemplo, mostrar un mensaje de error en la vista)
+                return RedirectToAction("Index", "Home");
             }
         }
     }

@@ -1,0 +1,25 @@
+﻿@model WebApplicationParqueando.Models.DTO.ReservaDTO
+
+<h2>Eliminar Reserva</h2>
+
+<h3>¿Está seguro que desea eliminar la reserva?</h3>
+<div>
+    <h4>ID: @Model.IDReserva</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Tiempo de Reserva
+        </dt>
+        <dd class="col-sm-10">
+            @Model.TiempoReserva
+        </dd>
+
+        <!-- Agrega otros detalles según sea necesario -->
+
+    </dl>
+</div>
+
+<form asp-action="DeleteConfirmed" asp-route-id="@Model.IDReserva">
+    <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+    <a asp-action="Index">Volver a la lista</a>
+</form>

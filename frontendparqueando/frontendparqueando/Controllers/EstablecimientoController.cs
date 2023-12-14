@@ -1,99 +1,107 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using WebApplicationParqueando.Models.DTO;
 using WebApplicationParqueando.Repository.Interfaces;
-using WebApplicationParqueando.Utilities;
 
-namespace WebApplicationBilling.Controllers
+namespace WebApplicationParqueando.Controllers
 {
-    public class EstablecimientoController : Controller
+    [Route("Establecimientos")]
+    public class EstablecimientosController : Controller
     {
         private readonly IEstablecimientoRepository _establecimientoRepository;
 
-        public EstablecimientoController(IEstablecimientoRepository establecimientoRepository)
+        public EstablecimientosController(IEstablecimientoRepository establecimientoRepository)
         {
-            this._establecimientoRepository = establecimientoRepository;
+            _establecimientoRepository = establecimientoRepository;
         }
 
-        [HttpGet]
-        public ActionResult Index()
+        // GET: Establecimientos
+        public async Task<IActionResult> Index()
         {
-            return View(new EstablecimientoDTO() { });
+            var establecimientos = await _establecimientoRepository.GetAllAsync();
+            return View(establecimientos);
         }
 
-        public async Task<IActionResult> GetAllEstablecimientos()
+        // GET: Establecimientos/Details/5
+        public async Task<IActionResult> Details(int id)
         {
-            try
+            var establecimiento = await _establecimientoRepository.GetByIdAsync(id);
+            if (establecimiento == null)
             {
-                var data = await _establecimientoRepository.GetAllAsync(UrlResources.UrlBase + UrlResources.UrlEstablecimientos);
-                return Json(new { data });
+                return NotFound();
             }
-            catch (Exception ex)
-            {
-                return StatusCode(500, "Internal Server Error. Please try again later.");
-            }
+
+            return View(establecimiento);
         }
 
-        public ActionResult Details(int id)
+        // GET: Establecimientos/Create
+        public IActionResult Create()
         {
             return View();
         }
 
-        public ActionResult Create()
-        {
-            return View();
-        }
-
+        // POST: Establecimientos/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(EstablecimientoDTO establecimiento)
         {
-            try
+            if (ModelState.IsValid)
             {
-                await _establecimientoRepository.PostAsync(UrlResources.UrlBase + UrlResources.UrlEstablecimientos, establecimiento);
+                await _establecimientoRepository.CreateAsync(establecimiento);
                 return RedirectToAction(nameof(Index));
             }
-            catch
-            {
-                return View();
-            }
+            return View(establecimiento);
         }
 
-        public ActionResult Edit(int id)
+        // GET: Establecimientos/Edit/5
+        public async Task<IActionResult> Edit(int id)
         {
-            return View();
+            var establecimiento = await _establecimientoRepository.GetByIdAsync(id);
+            if (establecimiento == null)
+            {
+                return NotFound();
+            }
+            return View(establecimiento);
         }
 
+        // POST: Establecimientos/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public async Task<IActionResult> Edit(int id, EstablecimientoDTO establecimiento)
         {
-            try
+            if (id != establecimiento.IDEstablecimiento)
             {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                await _establecimientoRepository.UpdateAsync(id, establecimiento);
                 return RedirectToAction(nameof(Index));
             }
-            catch
-            {
-                return View();
-            }
+            return View(establecimiento);
         }
 
-        public ActionResult Delete(int id)
+        // GET: Establecimientos/Delete/5
+        public async Task<IActionResult> Delete(int id)
         {
-            return View();
+            var establecimiento = await _establecimientoRepository.GetByIdAsync(id);
+            if (establecimiento == null)
+            {
+                return NotFound();
+            }
+
+            return View(establecimiento);
         }
 
-        [HttpPost]
+        // POST: Establecimientos/Delete/5
+        [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            await _establecimientoRepository.DeleteAsync(id);
+            return RedirectToAction(nameof(Index));
         }
     }
 }

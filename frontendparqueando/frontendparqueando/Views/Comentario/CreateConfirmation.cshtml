@@ -1,0 +1,38 @@
+﻿@model WebApplicationParqueando.Models.DTO.ComentarioDTO
+
+<h2>Comentario Creado Exitosamente</h2>
+
+<div>
+    <h4>Detalles del Comentario</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ComentarioTexto)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ComentarioTexto)
+        </dd>
+    </dl>
+
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.IDusuario)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IDusuario)
+        </dd>
+    </dl>
+
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.IDEstablecimiento)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IDEstablecimiento)
+        </dd>
+    </dl>
+
+    <div>
+        <a asp-action="Index">Volver a la Lista</a>
+    </div>
+</div>

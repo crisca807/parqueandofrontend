@@ -1,5 +1,33 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@model WebApplicationParqueando.Models.DTO.CalificacionDTO
+
+<h1>Eliminar Calificación</h1>
+
+<h3>¿Está seguro que desea eliminar esta calificación?</h3>
+<div>
+    <h4>Calificación</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Valoracion)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Valoracion)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.IDUsuario)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IDUsuario)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.IDEstablecimiento)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IDEstablecimiento)
+        </dd>
+    </dl>
+    <form asp-action="Delete" asp-route-id="@Model.IDcalificacion">
+        <input type="submit" value="Eliminar" class="btn btn-danger" />
+        <a asp-action="Index">Volver a la lista</a>
+    </form>
+</div>

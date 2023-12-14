@@ -1,0 +1,41 @@
+﻿@model IEnumerable<WebApplicationParqueando.Models.DTO.ReservaDTO>
+
+<h2>Reservas</h2>
+
+<p>
+    <a asp-action="Create">Crear nueva reserva</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Tiempo de Reserva</th>
+            <th>Placa</th>
+            <th>Tipo de Vehículo</th>
+            <th>ID Usuario</th>
+            <th>ID Establecimiento</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var reserva in Model)
+        {
+            <tr>
+                <td>@reserva.IDReserva</td>
+                <td>@reserva.TiempoReserva</td>
+                <td>@reserva.Placa</td>
+                <td>@reserva.TipoVehiculo</td>
+                <td>@reserva.IDUsuario</td>
+                <td>@reserva.IDEstablecimiento</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@reserva.IDReserva">Detalles</a> |
+                    <a asp-action="Edit" asp-route-id="@reserva.IDReserva">Editar</a> |
+                    <a asp-action="Delete" asp-route-id="@reserva.IDReserva">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+``
+

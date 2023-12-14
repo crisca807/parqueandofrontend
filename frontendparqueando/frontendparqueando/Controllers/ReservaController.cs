@@ -1,4 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using WebApplicationParqueando.Models.DTO;
 using WebApplicationParqueando.Repository.Interfaces;
 using WebApplicationParqueando.Utilities;
@@ -11,35 +14,28 @@ namespace WebApplicationParqueando.Controllers
 
         public ReservaController(IReservaRepository reservaRepository)
         {
-            this._reservaRepository = reservaRepository;
+            _reservaRepository = reservaRepository;
         }
 
-        [HttpGet]
-        public ActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View(new ReservaDTO());
+            var reservas = await _reservaRepository.GetAllAsync();
+            return View(reservas);
         }
 
-        public async Task<IActionResult> GetAllReservas()
+        public async Task<IActionResult> Details(int id)
         {
-            try
+            var reserva = await _reservaRepository.GetByIdAsync(id);
+            if (reserva == null)
             {
-                var data = await _reservaRepository.GetAllAsync(UrlResources.UrlBase + UrlResources.UrlReservas);
-                return Json(new { data });
+                return NotFound();
             }
-            catch (Exception ex)
-            {
-                return StatusCode(500, "Internal Server Error. Please try again later.");
-            }
+            return View(reserva);
         }
 
-        public ActionResult Details(int id)
+        public IActionResult Create()
         {
-            return View();
-        }
-
-        public ActionResult Create()
-        {
+            // Lógica para obtener datos necesarios para la vista de creación
             return View();
         }
 
@@ -49,19 +45,19 @@ namespace WebApplicationParqueando.Controllers
         {
             try
             {
-                await _reservaRepository.PostAsync(UrlResources.UrlBase + UrlResources.UrlReservas, reserva);
+                await _reservaRepository.PostAsync(reserva);
                 return RedirectToAction(nameof(Index));
             }
-            catch
+            catch (Exception ex)
             {
+                // Manejar el error según tus necesidades
                 return View();
             }
         }
 
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> Edit(int id)
         {
-            var reserva = new ReservaDTO();
-            reserva = await _reservaRepository.GetByIdAsync(UrlResources.UrlBase + UrlResources.UrlReservas, id.GetValueOrDefault());
+            var reserva = await _reservaRepository.GetByIdAsync(id);
             if (reserva == null)
             {
                 return NotFound();
@@ -71,34 +67,43 @@ namespace WebApplicationParqueando.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(ReservaDTO reserva)
+        public async Task<IActionResult> Edit(int id, ReservaDTO reserva)
         {
-            if (ModelState.IsValid)
+            try
             {
-                await _reservaRepository.UpdateAsync(UrlResources.UrlBase + UrlResources.UrlReservas + reserva.UrlReservas, reserva);
+                await _reservaRepository.PutAsync(id, reserva);
                 return RedirectToAction(nameof(Index));
             }
-
-            return View();
+            catch (Exception ex)
+            {
+                // Manejar el error según tus necesidades
+                return View();
+            }
         }
 
-        [HttpDelete]
         public async Task<IActionResult> Delete(int id)
         {
-            var reserva = await _reservaRepository.GetByIdAsync(UrlResources.UrlBase + UrlResources.UrlReservas, id);
+            var reserva = await _reservaRepository.GetByIdAsync(id);
             if (reserva == null)
             {
-                return Json(new { success = false, message = "Reserva no encontrada." });
+                return NotFound();
             }
+            return View(reserva);
+        }
 
-            var deleteResult = await _reservaRepository.DeleteAsync(UrlResources.UrlBase + UrlResources.UrlReservas, id);
-            if (deleteResult)
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            try
             {
-                return Json(new { success = true, message = "Reserva eliminada correctamente." });
+                await _reservaRepository.DeleteAsync(id);
+                return RedirectToAction(nameof(Index));
             }
-            else
+            catch (Exception ex)
             {
-                return Json(new { success = false, message = "Error al eliminar la reserva." });
+                // Manejar el error según tus necesidades
+                return View();
             }
         }
     }

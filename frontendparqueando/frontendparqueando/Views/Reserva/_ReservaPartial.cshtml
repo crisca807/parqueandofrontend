@@ -1,0 +1,15 @@
+﻿@model WebApplicationParqueando.Models.DTO.ReservaDTO
+
+<tr>
+    <td>@Model.IDReserva</td>
+    <td>@Model.TiempoReserva</td>
+    <td>@Model.Placa</td>
+    <td>@Model.TipoVehiculo</td>
+    <td>@Model.IDUsuario</td>
+    <td>@Model.IDEstablecimiento</td>
+    <td>
+        <a asp-action="Details" asp-route-id="@Model.IDReserva">Detalles</a> |
+        <a asp-action="Edit" asp-route-id="@Model.IDReserva">Editar</a> |
+        <a asp-action="Delete" asp-route-id="@Model.IDReserva">Eliminar</a>
+    </td>
+</tr>

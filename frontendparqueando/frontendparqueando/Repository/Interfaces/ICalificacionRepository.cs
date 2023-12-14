@@ -1,9 +1,15 @@
-﻿using WebApplicationParqueando.Models.DTO;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+using WebApplicationParqueando.Models.DTO;
 
 namespace WebApplicationParqueando.Repository.Interfaces
 {
-    public interface ICalificacionRepository : IRepository<CalificacionDTO>
+    public interface ICalificacionRepository
     {
-        // Agrega métodos específicos para el repositorio de calificaciones, si es necesario.
+        Task<IEnumerable<CalificacionDTO>> GetAllAsync();
+        Task<CalificacionDTO> GetByIdAsync(int id);
+        Task<bool> CreateAsync(CalificacionDTO calificacion);
+        Task<bool> UpdateAsync(int id, CalificacionDTO calificacion);
+        Task<bool> DeleteAsync(int id);
     }
 }

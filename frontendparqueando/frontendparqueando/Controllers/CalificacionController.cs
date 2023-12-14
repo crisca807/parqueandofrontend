@@ -1,90 +1,114 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using WebApplicationParqueando.Models.DTO;
 using WebApplicationParqueando.Repository.Interfaces;
-using WebApplicationParqueando.Utilities;
 
-namespace WebApplicationBilling.Controllers
+namespace WebApplicationParqueando.Controllers
 {
-    public class CalificacionController : Controller
+    public class CalificacionesController : Controller
     {
         private readonly ICalificacionRepository _calificacionRepository;
 
-        public CalificacionController(ICalificacionRepository calificacionRepository)
+        public CalificacionesController(ICalificacionRepository calificacionRepository)
         {
-            this._calificacionRepository = calificacionRepository;
+            _calificacionRepository = calificacionRepository;
         }
 
-        [HttpGet]
-        public ActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View(new CalificacionDTO() { });
+            var calificaciones = await _calificacionRepository.GetAllAsync();
+            return View(calificaciones);
         }
 
-        public async Task<IActionResult> GetAllCalificaciones()
+        public async Task<IActionResult> Details(int id)
         {
-            try
+            var calificacion = await _calificacionRepository.GetByIdAsync(id);
+
+            if (calificacion == null)
             {
-                var data = await _calificacionRepository.GetAllAsync(UrlResources.UrlBase + UrlResources.UrlCalificaciones);
-                return Json(new { data });
+                return NotFound();
             }
-            catch (Exception ex)
-            {
-                return StatusCode(500, "Internal Server Error. Please try again later.");
-            }
+
+            return View(calificacion);
         }
 
-        public async Task<IActionResult> GetCalificacionById(int id)
+        public IActionResult Create()
         {
-            try
-            {
-                var data = await _calificacionRepository.GetByIdAsync(id);
-                return Json(new { data });
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, "Internal Server Error. Please try again later.");
-            }
+            // Implementar si es necesario
+            return View();
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddCalificacion([FromBody] CalificacionDTO calificacion)
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create(CalificacionDTO calificacion)
         {
             try
             {
-                var result = await _calificacionRepository.AddAsync(calificacion);
-                return Json(new { data = result });
+                await _calificacionRepository.CreateAsync(calificacion);
+                return RedirectToAction(nameof(Index));
             }
             catch (Exception ex)
             {
-                return StatusCode(500, "Internal Server Error. Please try again later.");
+                // Manejar el error según sea necesario
+                return View();
             }
         }
 
-        [HttpPut]
-        public async Task<IActionResult> UpdateCalificacion([FromBody] CalificacionDTO calificacion)
+        public async Task<IActionResult> Edit(int id)
+        {
+            var calificacion = await _calificacionRepository.GetByIdAsync(id);
+
+            if (calificacion == null)
+            {
+                return NotFound();
+            }
+
+            return View(calificacion);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(int id, CalificacionDTO calificacion)
         {
             try
             {
-                var result = await _calificacionRepository.UpdateAsync(calificacion);
-                return Json(new { data = result });
+                await _calificacionRepository.UpdateAsync(id, calificacion);
+                return RedirectToAction(nameof(Index));
             }
             catch (Exception ex)
             {
-                return StatusCode(500, "Internal Server Error. Please try again later.");
+                // Manejar el error según sea necesario
+                return View();
             }
         }
 
-        [HttpDelete]
-        public async Task<IActionResult> DeleteCalificacion(int id)
+        public async Task<IActionResult> Delete(int id)
+        {
+            var calificacion = await _calificacionRepository.GetByIdAsync(id);
+
+            if (calificacion == null)
+            {
+                return NotFound();
+            }
+
+            return View(calificacion);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int id)
         {
             try
             {
-                var result = await _calificacionRepository.DeleteAsync(id);
-                return Json(new { data = result });
+                await _calificacionRepository.DeleteAsync(id);
+                return RedirectToAction(nameof(Index));
             }
             catch (Exception ex)
             {
-                return StatusCode(500, "Internal Server Error. Please try again later.");
+                // Manejar el error según sea necesario
+                return View();
             }
         }
     }

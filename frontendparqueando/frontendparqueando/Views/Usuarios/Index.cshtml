@@ -1,0 +1,31 @@
+﻿@model IEnumerable<WebApplicationParqueando.Models.DTO.UsuarioDTO>
+
+<h2>Lista de Usuarios</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Correo Electrónico</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var usuario in Model)
+        {
+            <tr>
+                <td>@usuario.IDUsuario</td>
+                <td>@usuario.Nombre</td>
+                <td>@usuario.Apellido</td>
+                <td>@usuario.CorreoElectronico</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@usuario.IDUsuario">Detalles</a> |
+                    <a asp-action="Edit" asp-route-id="@usuario.IDUsuario">Editar</a> |
+                    <a asp-action="Delete" asp-route-id="@usuario.IDUsuario">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
